@@ -9,14 +9,34 @@
 
 //start by developing a program that plays one round and determines the winner. 
 
+//create function named generateRandom
+function generateRandom(min, max) {
+    // find diff
+    let difference = max - min;
+    // generate random number 
+    let rand = Math.random();
+    // multiply with difference 
+    rand = Math.floor( rand * difference);
+    // add with min value 
+    rand = rand + min;
+    return rand;
+}
 
 //create function "computerPlay" with no parameters required
+function computerPlay() {
 //declare variable with name "n"
 //n is equal to random number between 1 and 3. 
+  let n = generateRandom(1, 4);
 //if n is equal to 1 return a string - "rock"
+  if (n === 1) { 
+      return "rock"
 //else if n is equal to 2 return a string - "paper"
+  } else if (n === 2) { 
+      return "paper"
 //else return a string- "scissors"
-
+  } else 
+      return "scissors"
+}
 
 //create function playRound - parameters(computerSelection, playerSelection)
 //computerSelection is equal to result of computerPlay function. 
