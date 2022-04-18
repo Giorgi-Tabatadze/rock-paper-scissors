@@ -108,8 +108,8 @@ function game() {
   let playerScore = 0;
 //declare variable message and set it to empty string
   let message = ""
-//create a for loop that is going to run 5 times and stop. 
-  for (let i = 0; i < 5; i++) {
+//create a for loop that is going to run until computer or player get 5 wins.
+  for (let i = 0; i < 10; i++) {
 //message is equal to playRound function result 
     message = playRound();
 //if message contains "You Lose" 
@@ -135,13 +135,13 @@ function game() {
     console.log(message);
     console.log(`Your score is: ${playerScore} and Computer score is: ${computerScore}`)
 
-//if computerScore is equal to 3 console log "Loser! You have lost the game!"
-    if (computerScore === 3)
+//if computerScore is equal to 5 console log "Loser! You have lost the game!"
+    if (computerScore === 5)
     {
       return console.log("Loser! You have lost the game!")
     }
-//if playerScore is equal to 3 console log "Congratulations! You have won the game!"
-    if (playerScore === 3)
+//if playerScore is equal to 5 console log "Congratulations! You have won the game!"
+    if (playerScore === 5)
     {
       return console.log("Congratulations! You have won the game!")
     }
