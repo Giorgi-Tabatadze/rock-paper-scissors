@@ -29,58 +29,122 @@ function computerPlay() {
   let n = generateRandom(1, 4);
 //if n is equal to 1 return a string - "rock"
   if (n === 1) { 
-      return "rock"
+    return "ROCK";
 //else if n is equal to 2 return a string - "paper"
   } else if (n === 2) { 
-      return "paper"
+    return "PAPER";
 //else return a string- "scissors"
   } else 
-      return "scissors"
+    return "SCISSORS";
 }
 
-//create function playRound - parameters(computerSelection, playerSelection)
-//computerSelection is equal to result of computerPlay function. 
-//playerSelection is equal to lower cased user input that is taken using a prompt.
-//declare variable 
-//if computerSelection is equal to playerSelection return a string - "its a tie!"
 
+//create function playRound - parameters(computerSelection, playerSelection)
+function playRound() {
+//computerSelection is equal to result of computerPlay function. 
+  let computerSelection = computerPlay();
+//playerSelection is equal to lower cased user input that is taken using a prompt.
+  let playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+//if computerSelection is equal to playerSelection return a string - "its a tie!"
+  if (computerSelection === playerSelection) 
+  {
+    return "its a tie!";
+  }
 //if computerSelection is rock and playerSelection is scissors return a string - 
 //"You Lose! Rock beats Scissors"
+  else if (computerSelection === "ROCK" 
+            && playerSelection === "SCISSORS") 
+  {
+    return "You Lose! Rock beats Scissors";
+  }
 //if computerSelection is paper and playerSelection is rock return a string - 
 //"You Lose! Paper beats Rock"
+  else if (computerSelection === "PAPER" 
+            && playerSelection === "ROCK")
+  {
+    return "You Lose! Paper beats Rock";
+  }
 //if computerSelection is scissors and playerSelection is paper return a string -
 //"You Lose! Scissors beat paper"
-
+  else if (computerSelection === "SCISSORS"
+          && playerSelection === "PAPER")
+  {
+    return "You Lose! Scissors beat paper";
+  }
 //if computerSelection is rock and playerSelection is paper return a string -
 //"You Win! Paper beats Rock"
+  else if (computerSelection === "ROCK"
+          && playerSelection === "PAPER")
+  {
+    return "You Win! Paper beats Rock";
+  }
 //if computerSelection is paper and playerSelection is scissors return a string -
 //"You Win! Scissors beat Rock"
+  else if (computerSelection === "PAPER"
+          && playerSelection === "SCISSORS")
+  {
+    return "You Win! Scissors beat Rock";
+  }
 //if computerSelection is scissors and playerSelection is rock return a string- 
 //"You Win! Rock beats Scisssors"
+  else if (computerSelection === "SCISSORS"
+          && playerSelection === "ROCK")
+  {
+    return "You Win! Rock beats Scisssors";
+  }
 
 //else return a string - "Incorrect input! Please try again"
-
+  else 
+  {
+    return "Incorrect input! Please try again";
+  }
+}
 
 //create function game with no parameters
+function game() {
 //declare variable computerScore and set it to 0 
+  let computerScore = 0;
 //declare variable playerScore and set it to 0 
+  let playerScore = 0;
 //declare variable message and set it to empty string
-
+  let message = ""
 //create a for loop that is going to run 5 times and stop. 
-
+  for (let i = 0; i < 5; i++) {
 //message is equal to playRound function result 
-
+    message = playRound();
 //if message contains "You Lose" 
 //increase computerScore by one
-
+    if (message.includes("You Lose"))
+    {
+      computerScore++;
+    }
 //else if message contains "You Win"
 //increase playerScore by one
+    else if (message.includes("You Win")) 
+    {
+      playerScore++
+    }
 
 //else decrease for loop variable by one
-
+    else
+    {
+      i--
+    }
 //console log message
 //console log "Your score is: playerScore  Computer score is: computerScore"
+    console.log(message);
+    console.log(`Your score is: ${playerScore} and Computer score is: ${computerScore}`)
 
-//if computerScore or playerScore is equal to 3 stop the loop.
-
+//if computerScore is equal to 3 console log "Loser! You have lost the game!"
+    if (computerScore === 3)
+    {
+      return console.log("Loser! You have lost the game!")
+    }
+//if playerScore is equal to 3 console log "Congratulations! You have won the game!"
+    if (playerScore === 3)
+    {
+      return console.log("Congratulations! You have won the game!")
+    }
+  }
+}
 
