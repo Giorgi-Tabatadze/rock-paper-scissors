@@ -37,6 +37,7 @@ function computerPlay() {
 /* Play a round using user input and increment winner score to track who wins. 
 if one of the users gets 5 they win and game start over.*/
 function playRound(playerSelection) {
+  mainScreen.style.color = "black"
   playerSelection = playerSelection.target.id;
   let computerSelection = computerPlay();
   if (computerSelection === playerSelection) 
@@ -90,15 +91,18 @@ function playRound(playerSelection) {
     message = ("Loser! You have lost the game!, press any key to start again")
     computerScore = 0;
     playerScore = 0;
+    mainScreen.style.color = "red"
   }
   if (playerScore === 5)
   {
     message = "Congratulations! You have won the game! press any key to start again"
     computerScore = 0;
     playerScore = 0;
+    mainScreen.style.color = "green"
   }
   mainScreen.innerText = `${score}
-                          ${message}`
+                          ${message}`;
+  
 }
 
 
